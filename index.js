@@ -4,13 +4,14 @@ const fs = require('fs');
 const util = require('util');
 
 // Modules
-const api = require('.utils/api.js');
+const api = require('./utils/api.js');
 const generateMarkdown =require('./utils/generateMarkdown.js');
 
 
 // Array of questions for user input
 const questions = [ {
     type: "input",
+
     message: "Enter your GitHub username",
     name: "username",
     validate: (githubInput) => {
@@ -77,7 +78,7 @@ const questions = [ {
     type: "input",
     message:
       "List your collaborators, if any, with links to their GitHub profiles.",
-    name: "contributing",
+    name: "credits",
   },
   {
     type: "input",
@@ -85,11 +86,12 @@ const questions = [ {
     name: "tests",
   },
   {
-    type: "input",
+    type: "checkbox",
     message: "Choose a license for your project.",
     choices: ["GNU GPLv3", " GNU GPLv2 ", "Apache license 2.0", "MIT license", " ISC License"],
     name: "license",
-  },];
+  },
+];
 
 // Function to write README file
 function writeToFile(fileName, data) {
@@ -104,7 +106,7 @@ function writeToFile(fileName, data) {
 const writeFileAsync = util.promisify(writeToFile);
 
 // Function to initialize app
-function init() {
+async function init() {
     try {
         // Prompt Inquirer questions
         const userInput = await inquirer.prompt(questions);
