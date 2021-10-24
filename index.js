@@ -91,11 +91,22 @@ const questions = [ {
     name: "license",
   },];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// Function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log("Your README.md file has been generated! ");
+      });
+}
 
-// TODO: Create a function to initialize app
-function init() {}
+const writeFileAsync = util.promisify(writeToFile);
+
+// Function to initialize app
+function init() {
+    
+}
 
 // Function call to initialize app
 init();
