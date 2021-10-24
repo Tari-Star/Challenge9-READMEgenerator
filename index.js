@@ -105,7 +105,26 @@ const writeFileAsync = util.promisify(writeToFile);
 
 // Function to initialize app
 function init() {
+    try {
+        // Prompt Inquirer questions
+        const userInput = await inquirer.prompt(questions);
+        console.log("Your responses: ", userInput);
+        console.log("Fetching your GitHub data...");
     
+        // Call GitHub api for user info
+        const userInfo = await api.getUser(userInput);
+        console.log("Your GitHub user info: ", userInfo);
+    
+        // Pass Inquirer  userInput and GitHub userInfo to generateMarkdown
+        console.log("Generating your README...");
+        const markdown = generateMarkdown(userInput, userInfo);
+        console.log(markdown);
+    
+        // Write markdown to file
+        await writeFileAsync("ExampleREADME.md", markdown);
+      } catch (error) {
+        console.log(error);
+      }
 }
 
 // Function call to initialize app
