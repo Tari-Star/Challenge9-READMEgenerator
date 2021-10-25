@@ -88,13 +88,13 @@ const questions = [ {
   {
     type: "checkbox",
     message: "Choose a license for your project.",
-    choices: ["GNU GPLv3", " GNU GPLv2 ", "Apache license 2.0", "MIT license", " ISC License"],
+    choices: ["GPLv3", "Apache%202.0", "MIT"],
     name: "license",
   },
 ];
 
 // Function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(fileName,data) {
     fs.writeFile(fileName, data, (err) => {
         if (err) {
           return console.log(err);
