@@ -1,3 +1,5 @@
+
+
 // Function to generate markdown for README
 
 function generateMarkdown(userInput, userInfo) {
@@ -49,6 +51,7 @@ function generateMarkdown(userInput, userInfo) {
 
   if (userInput.installation !== "") {
     tempMarkdown += `
+
   ## Installation 
 
 
@@ -59,7 +62,8 @@ function generateMarkdown(userInput, userInfo) {
 
   if (userInput.usage !== "") {
     tempMarkdown += `
-    ## Usage
+
+  ## Usage
 
     
   *Instructions and examples for use:*
@@ -69,6 +73,7 @@ function generateMarkdown(userInput, userInfo) {
 
   if (userInput.credits !== "") {
     tempMarkdown += `
+
   ## Credits
 
     
@@ -77,6 +82,7 @@ function generateMarkdown(userInput, userInfo) {
 
   if (userInput.tests !== "") {
     tempMarkdown += `
+
   ## Tests
 
     
@@ -87,15 +93,16 @@ function generateMarkdown(userInput, userInfo) {
 
   if (userInput.license !== "") {
   tempMarkdown += `
+
   ## License
 
     
-  This project is licensed under the  ${userInput.license} license. 
-    [${userInput.license} license](https://choosealicense.com/licenses/${userInput.license}) 
+  This project is licensed under the [${userInput.license}](https://choosealicense.com/licenses/${userInput.license}) license.
     
     `;
   }
   tempMarkdown += `
+  
    ---
    
   ## Questions?

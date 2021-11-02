@@ -88,7 +88,7 @@ const questions = [ {
   {
     type: "checkbox",
     message: "Choose a license for your project.",
-    choices: ["GPLv3", "Apache%202.0", "MIT"],
+    choices: ["gplv3.0", "apache", "mit"],
     name: "license",
   },
 ];
